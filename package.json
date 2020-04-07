@@ -1,6 +1,6 @@
 {
   "name": "simplest-react-lazy",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Alternative to React.lazy with able to full coverage testing in Jest",
   "main": "./build/index.js",
   "browser": "./build/index.js",
