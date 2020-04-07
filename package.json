@@ -8,7 +8,10 @@
   "scripts": {
     "lint": "eslint src",
     "test": "cross-env BABEL_ENV=test jest",
-    "build": "cross-env BABEL_ENV=build babel src -d build --source-maps",
+    "build": "npm run build:clean && npm run build:main",
+    "build:clean": "rm -rf build",
+    "build:main": "cross-env BABEL_ENV=build babel src -d build --source-maps",
+    "build:copy": "cp ./package.json ./build/package.json",
     "prepare": "npm run build",
     "preversion": "npm run lint",
     "postversion": "git push && git push --tags"
