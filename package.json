@@ -23,9 +23,11 @@
     "url": "https://github.com/krutoo/simplest-react-lazy/issues"
   },
   "homepage": "https://github.com/krutoo/simplest-react-lazy#readme",
+  "peerDependencies": {
+    "react": "^16.12.0"
+  },
   "dependencies": {
-    "lodash": "^4.17.15",
-    "react": "^16.13.1"
+    "lodash": "^4.17.15"
   },
   "devDependencies": {
     "@babel/core": "^7.9.0",
