@@ -1,6 +1,22 @@
 # Simplest React.lazy alternative
 
-...with able to **fully coverage** testing in Jest
+...with able to fully coverage testing in Jest
+
+## Why?
+
+There are currently difficulties/problems with testing React Suspense/lazy in jest and enzyme.
+
+This package provides alternative with almost same API and testing util.
+
+## Install
+
+```bash
+# by npm
+npm install --save simplest-react-lazy
+
+# or yarn
+yarn add simplest-react-lazy
+```
 
 ## Usage
 
