@@ -4,8 +4,9 @@
 
 ## Usage
 
+`component.jsx`
+
 ```jsx
-// component.jsx
 import React from 'react';
 
 const Component = () => (
@@ -13,13 +14,18 @@ const Component = () => (
 );
 
 export default Component;
+```
 
-// lazy-component.jsx
+`lazy-component.jsx`
+
+```jsx
 import { lazy } from 'simplest-react-lazy';
 
 export const LazyComponent = lazy(() => import('./component'));
+```
 
-// index.jsx
+`index.jsx`
+```jsx
 import React, { useState } from 'react';
 import { LazyComponent } from './lazy-component.jsx';
 
@@ -36,7 +42,7 @@ export const App = () => {
       </button>
 
       {show && (
-        <LazyComponent fallback='Loading...' />
+        <LazyComponent fallback='Loading...' /> // no Suspense needed
       )}
     </div>
   );
