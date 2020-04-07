@@ -1,0 +1,43 @@
+{
+  "name": "simplest-react-lazy",
+  "version": "0.0.0",
+  "description": "Alternative to React.lazy with able to full coverage testing in Jest",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/krutoo/simplest-react-lazy.git"
+  },
+  "keywords": [
+    "react",
+    "lazy",
+    "suspense",
+    "jest",
+    "test"
+  ],
+  "author": "Dmitry Petrov",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/krutoo/simplest-react-lazy/issues"
+  },
+  "homepage": "https://github.com/krutoo/simplest-react-lazy#readme",
+  "dependencies": {
+    "lodash": "^4.17.15",
+    "react": "^16.13.1"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.9.0",
+    "@babel/preset-env": "^7.9.0",
+    "@babel/preset-react": "^7.9.4",
+    "babel-jest": "^25.2.6",
+    "enzyme": "^3.11.0",
+    "enzyme-adapter-react-16": "^1.15.2",
+    "eslint": "^6.8.0",
+    "eslint-config-krutoo": "0.0.7",
+    "jest": "^25.2.7",
+    "react-dom": "^16.13.1",
+    "react-test-renderer": "^16.13.1"
+  }
+}
