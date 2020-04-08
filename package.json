@@ -14,7 +14,6 @@
     "dist": "npm run dist:prep && npm publish build && npm run dist:post",
     "dist:prep": "npm run build && cp ./package.json build && cp ./readme.md build",
     "dist:post": "rm -f build/package.json",
-    "prepare": "npm run build",
     "preversion": "npm run lint",
     "postversion": "git push && git push --tags"
   },
