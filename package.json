@@ -2,19 +2,20 @@
   "name": "simplest-react-lazy",
   "version": "0.0.5",
   "description": "Alternative to React.lazy with able to full coverage testing in Jest",
-  "main": "./build/index.js",
-  "browser": "./build/index.js",
-  "module": "./build/index.js",
+  "main": "./index.js",
+  "browser": "./index.js",
+  "module": "./index.js",
   "scripts": {
     "lint": "eslint src",
     "test": "cross-env BABEL_ENV=test jest",
-    "build": "npm run build:clean && npm run build:main",
+    "build": "npm run build:clean && npm run build:main && build:copy",
     "build:clean": "rm -rf build",
     "build:main": "cross-env BABEL_ENV=build babel src -d build --source-maps",
     "build:copy": "cp ./package.json ./build/package.json",
+    "build:post": "rm ./build/package.json",
     "prepare": "npm run build",
     "preversion": "npm run lint",
-    "postversion": "git push && git push --tags"
+    "postversion": "git push && git push --tags && npm run build:post"
   },
   "files": [
     "build/**/*"
