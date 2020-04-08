@@ -8,14 +8,15 @@
   "scripts": {
     "lint": "eslint src",
     "test": "cross-env BABEL_ENV=test jest",
-    "build": "npm run build:clean && npm run build:main && build:copy",
+    "build": "npm run build:clean && npm run build:main",
     "build:clean": "rm -rf build",
     "build:main": "cross-env BABEL_ENV=build babel src -d build --source-maps",
-    "build:copy": "cp ./package.json ./build/package.json",
-    "build:post": "rm ./build/package.json",
+    "dist": "npm run dist:prep && npm publish build && npm run dist:post",
+    "dist:prep": "cp ./package.json ./build/package.json",
+    "dist:post": "rm -f build/package.json",
     "prepare": "npm run build",
     "preversion": "npm run lint",
-    "postversion": "git push && git push --tags && npm run build:post"
+    "postversion": "git push && git push --tags"
   },
   "files": [
     "build/**/*"
