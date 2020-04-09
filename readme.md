@@ -91,7 +91,7 @@ Write test with special util
 import React from 'react';
 import { act } from 'react-dom/test-utils';
 import { mount } from 'enzyme';
-import { importLazy } from '../../src/test-utils';
+import { importLazy } from 'simplest-react-lazy/test-utils';
 // ...import components...
 
 describe('<App />', () => {
