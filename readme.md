@@ -121,7 +121,7 @@ describe('<App />', () => {
 });
 ```
 
-To Do
+## To Do
 
 - remove `lodash/fp/prop`
 - show warning when resolveComponent returns non valid React type
