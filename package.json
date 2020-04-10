@@ -14,8 +14,10 @@
     "dist": "npm run dist:prep && npm publish build && npm run dist:post",
     "dist:prep": "npm run build && cp ./package.json build && cp ./readme.md build",
     "dist:post": "rm -f build/package.json && rm -f build/readme.md",
+    "dist:nopublish": "echo 'Use `npm run dist` instead of `npm publish`!' && exit 1",
     "preversion": "npm run lint",
-    "postversion": "git push && git push --tags"
+    "postversion": "git push && git push --tags",
+    "prepublishOnly": "if [[ ! $PWD =~ build$ ]]; then npm run dist:nopublish; fi"
   },
   "repository": {
     "type": "git",
