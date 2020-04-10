@@ -1,13 +1,14 @@
 import React, { useState } from 'react';
-import prop from 'lodash/fp/prop';
 
-const getDefault = prop('default');
+const getDefault = source => source
+  ? source.default
+  : undefined;
 
 export const lazy = (doImport, { resolveComponent = getDefault } = {}) => {
   let data = null;
   let loaded = false;
 
-  const LoadableComponent = ({ fallback = null, ...props }) => {
+  const LazyComponent = ({ fallback = null, ...props }) => {
     const [Component, setComponent] = useState(data);
 
     !loaded && doImport()
@@ -15,16 +16,23 @@ export const lazy = (doImport, { resolveComponent = getDefault } = {}) => {
         data = resolveComponent(payload);
         loaded = true;
 
+        if (!data) {
+          console.warn([
+            `Failed to resolve lazy component, received: ${String(data) || '""'}`,
+            'Fallback value will be displayed',
+          ].join('\n'));
+        }
+
         setComponent(() => data);
       })
-      .catch(error => console.error(error));
+      .catch(console.error);
 
     return loaded && Component
       ? <Component {...props} />
       : fallback;
   };
 
-  LoadableComponent.displayName = 'LoadableComponent';
+  LazyComponent.displayName = 'LazyComponent';
 
-  return LoadableComponent;
+  return LazyComponent;
 };
