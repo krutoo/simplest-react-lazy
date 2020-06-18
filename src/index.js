@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState, createElement } from 'react';
 
 const getDefault = source => source
   ? source.default
@@ -28,7 +28,7 @@ export const lazy = (doImport, { resolveComponent = getDefault } = {}) => {
       .catch(console.error);
 
     return loaded && Component
-      ? <Component {...props} />
+      ? createElement(Component, props)
       : fallback;
   };
 
