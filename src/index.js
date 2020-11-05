@@ -9,7 +9,7 @@ export const lazy = (doImport, { resolveComponent = getDefault } = {}) => {
   let loaded = false;
 
   const LazyComponent = ({ fallback = null, ...props }) => {
-    const [Component, setComponent] = useState(data);
+    const [Component, setComponent] = useState(() => data);
 
     !loaded && doImport()
       .then(payload => {

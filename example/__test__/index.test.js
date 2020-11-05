@@ -32,5 +32,21 @@ describe('App', () => {
     wrapper.update();
 
     expect(wrapper.find(Component)).toHaveLength(1);
+
+    act(() => {
+      wrapper.find('button').simulate('click');
+    });
+
+    wrapper.update();
+
+    expect(wrapper.find(Component)).toHaveLength(0);
+
+    act(() => {
+      wrapper.find('button').simulate('click');
+    });
+
+    wrapper.update();
+
+    expect(wrapper.find(Component)).toHaveLength(1);
   });
 });
