@@ -14,7 +14,13 @@ module.exports = {
         '@babel/preset-react',
       ],
     },
-    build: {
+    module: {
+      presets: [
+        '@babel/preset-modules',
+        '@babel/preset-react',
+      ],
+    },
+    commonjs: {
       presets: [
         '@babel/preset-modules',
         '@babel/preset-react',

@@ -1,8 +1,6 @@
 import { useState, createElement } from 'react';
 
-const getDefault = source => source
-  ? source.default
-  : undefined;
+const getDefault = source => source ? source.default : undefined;
 
 export const lazy = (doImport, { resolveComponent = getDefault } = {}) => {
   let data = null;

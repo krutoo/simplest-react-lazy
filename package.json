@@ -2,15 +2,21 @@
   "name": "simplest-react-lazy",
   "version": "0.0.10",
   "description": "Alternative to React.lazy with able to full coverage testing in Jest",
-  "main": "./index.js",
-  "browser": "./index.js",
-  "module": "./index.js",
+  "main": "./dist/commonjs/index.js",
+  "module": "./dist/module/index.js",
+  "files": [
+    "dist",
+    "src"
+  ],
   "scripts": {
     "lint": "eslint src",
-    "test": "cross-env BABEL_ENV=test jest",
-    "build": "npm run build:clean && npm run build:main",
-    "build:clean": "rm -rf build",
-    "build:main": "cross-env BABEL_ENV=build babel src -d build --source-maps",
+    "test": "npm run test:lib && npm run test:example",
+    "test:lib": "cross-env BABEL_ENV=test jest --roots src",
+    "test:example": "cross-env BABEL_ENV=test jest --roots example",
+    "build": "npm run build:clean && npm run build:commonjs && npm run build:module",
+    "build:clean": "rimraf build",
+    "build:commonjs": "cross-env BABEL_ENV=commonjs babel src -d build/commonjs --source-maps --ignore \"src/__test__/**/*\"",
+    "build:module": "cross-env BABEL_ENV=module babel src -d build/module --source-maps --ignore \"src/__test__/**/*\"",
     "dist": "npm run dist:prep && npm publish build && npm run dist:post",
     "dist:prep": "npm run build && cp ./package.json build && cp ./readme.md build",
     "dist:post": "rm -f build/package.json && rm -f build/readme.md",
@@ -41,7 +47,7 @@
   },
   "dependencies": {},
   "devDependencies": {
-    "@babel/cli": "^7.8.4",
+    "@babel/cli": "^7.12.10",
     "@babel/core": "^7.9.0",
     "@babel/preset-env": "^7.9.0",
     "@babel/preset-modules": "^0.1.3",
@@ -55,6 +61,7 @@
     "jest": "^25.2.7",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
-    "react-test-renderer": "^16.13.1"
+    "react-test-renderer": "^16.13.1",
+    "rimraf": "^3.0.2"
   }
 }
