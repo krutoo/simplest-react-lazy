@@ -1,5 +1,9 @@
 # Simplest React.lazy alternative
 
+## Important
+
+**It is no longer necessary to use this library, since Jest allows you to control the loading of dedynamic modules. Just use React.lazy instead.** 
+
 ...with able to fully coverage testing in Jest
 
 ## Why?
